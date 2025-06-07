@@ -43,7 +43,7 @@ const features = [
   {
     title: "Work Offline",
     description: "Continue working without internet and sync when connected.",
-    icon: <Wifi size={28} className="text-blue-400" off={true} />
+    icon: <Wifi size={28} className="text-blue-400" />
   },
   {
     title: "Intuitive Interface",
