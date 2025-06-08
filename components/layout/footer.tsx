@@ -121,9 +121,20 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="mt-12 border-t border-gray-800 pt-8">
+        <div className="mt-12 flex justify-between border-t border-gray-800 pt-8">
           <p className="text-gray-400 text-center">
-            &copy; 2025 VAYUXI ERP Pvt Ltd. All rights reserved.
+            &copy; 2025 <span className='text-white font-bold'>VAYUXI ERP</span> Pvt Ltd. All rights reserved.
+          </p>
+          <p className="text-gray-400 text-lg text-center">
+            Developed by{' '}
+            <a
+              href="https://www.engxlab.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white font-bold"
+            >
+              EngxLab
+            </a>
           </p>
         </div>
       </div>
