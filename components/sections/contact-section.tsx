@@ -25,7 +25,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-[#0c1825] to-[#0a1421]">
+    <section id="contact" className="py-24 px-8 bg-gradient-to-b from-[#0c1825] to-[#0a1421]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -34,7 +34,7 @@ export function ContactSection() {
                 Get in Touch
               </h2>
               <p className="text-gray-300 mb-8">
-                Have questions about VAYUXI ERP? We're here to help. Fill out the form and our team will get back to you shortly.
+                Have questions about VAYUXI ERP? We&aspo;re here to help. Fill out the form and our team will get back to you shortly.
               </p>
               
               <div className="space-y-6">

@@ -54,7 +54,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features\" className="py-24 bg-[#0c1825]">
+    <section id="features" className="py-24 px-8 bg-[#0c1825]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Features</h2>
@@ -85,7 +85,7 @@ export function FeaturesSection() {
                 Simplicity So Profound, It Feels Like Magic
               </h3>
               <p className="text-gray-300 mb-6">
-                The UI/UX of Vayuxi is so intuitive, you won't need a manual. Or a demo. Or even training.
+                The UI/UX of Vayuxi is so intuitive, you won&aspo;t need a manual. Or a demo. Or even training.
               </p>
               <ul className="space-y-4">
                 <li className="flex">
@@ -124,7 +124,7 @@ export function FeaturesSection() {
               <div className="bg-blue-900/30 p-6 rounded-xl border border-blue-900/50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                 <blockquote className="text-white text-xl italic font-medium relative z-10">
-                  "We believe that technology shouldn't add complexity to your work — it should remove it completely."
+                  &quot;We believe that technology shouldn&aspo;t add complexity to your work — it should remove it completely.&quot;
                 </blockquote>
                 <div className="mt-8 flex items-center">
                   <div className="flex-shrink-0">

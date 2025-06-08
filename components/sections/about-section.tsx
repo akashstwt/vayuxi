@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-[#0a1421] to-[#0c1825]">
+    <section id="about" className="py-24 px-8 bg-gradient-to-b from-[#0a1421] to-[#0c1825]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -15,7 +15,7 @@ export function AboutSection() {
               mistakes.
             </p>
             <p className="text-gray-300 mb-6">
-              That's why we built a simple mobile app that makes your site management smart, fast, and error-free.
+              That&aspo;s why we built a simple mobile app that makes your site management smart, fast, and error-free.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
@@ -66,7 +66,7 @@ export function AboutSection() {
                     </div>
                   </div>
                   <p className="text-gray-300">
-                    We believe technology shouldn't add complexity to your work — it should remove it completely.
+                    We believe technology shouldn&aspo;t add complexity to your work — it should remove it completely.
                   </p>
                 </div>
                 
@@ -88,7 +88,7 @@ export function AboutSection() {
                 <div className="flex items-center p-4 bg-blue-900/40 rounded-lg">
                   <span className="text-3xl text-blue-300 font-bold mr-3">🚀</span>
                   <p className="text-white italic">
-                    "We didn't just build software. We engineered a time machine."
+                    &quot;We didn&aspo;t just build software. We engineered a time machine.&quot;
                   </p>
                 </div>
               </div>
