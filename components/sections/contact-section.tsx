@@ -25,7 +25,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 px-8 bg-gradient-to-b from-[#0c1825] to-[#0a1421]">
+    <section id="contact" className="py-24 px-3 md:px-8 bg-gradient-to-b from-[#0c1825] to-[#0a1421]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -89,7 +89,7 @@ export function ContactSection() {
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-1">Visit Us</h3>
                     <a
-                    href="https://www.google.com/maps?q=183,+REEVA+RESIDENCY+FLYOVER+BRIDGE,+KOSAMBA+DIST-+SURAT+394120+Gujarat,+India"
+                    href="https://www.google.com/maps?q=21.4506166,72.9481452"
                     target="_blank"
                     rel="noopener noreferrer"  
                     className="text-gray-200 underline hover:text-white" 

@@ -54,7 +54,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-24 px-8 bg-[#0c1825]">
+    <section id="features" className="py-24 px-3 md:px-8 bg-[#0c1825]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Features</h2>
@@ -123,10 +123,10 @@ export function FeaturesSection() {
             <div className="relative">
               <div className="bg-blue-900/30 p-6 rounded-xl border border-blue-900/50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                <blockquote className="text-white text-xl italic font-medium relative z-10">
+                <blockquote className="text-white text-lg md:text-xl italic font-medium relative z-10">
                   We believe technology shouldn’t complicate your work — It should quietly remove all the noise.
                 </blockquote>
-                <blockquote className="text-white text-xl italic mt-5 font-medium relative z-10">
+                <blockquote className="text-white text-lg md:text-xl italic mt-5 font-medium relative z-10">
                   “Built for the boots on the ground — not just the ones in the boardroom.”
                   Or
                   “Technology so simple, it disappears into your workflow.”

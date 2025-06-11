@@ -24,7 +24,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 px-8 bg-[#0a1421]">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 px-3 md:px-8 bg-[#0a1421]">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-[#0a1421] z-0"></div>
       

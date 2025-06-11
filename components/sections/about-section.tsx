@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 px-8 bg-gradient-to-b from-[#0a1421] to-[#0c1825]">
+    <section id="about" className="py-24 px-3 md:px-8 bg-gradient-to-b from-[#0a1421] to-[#0c1825]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -90,7 +90,7 @@ export function AboutSection() {
                 <div className="flex items-center p-4 bg-blue-900/40 rounded-lg">
                   <span className="text-3xl text-blue-300 font-bold mr-3">🚀</span>
                   <p className="text-white italic">
-                    We didn’t just build software. We engineered your time back.
+                    We didn’t just build software. We engineered your time back.
                   </p>
                 </div>
               </div>
