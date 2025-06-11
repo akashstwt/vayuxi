@@ -115,9 +115,9 @@ export function PricingSection() {
             <p className="text-gray-300 mb-6">
               📞 Contact our sales team to get a personalized quote and demo.
             </p>
-            <button className="py-2 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+            <a href="https://wa.me/918320554983" target="_blank" rel="noopener noreferrer" className="py-2 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
               Contact Sales
-            </button>
+            </a>
           </div>
         </div>
       </div>
