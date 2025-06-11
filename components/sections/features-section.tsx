@@ -82,10 +82,10 @@ export function FeaturesSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Simplicity So Profound, It Feels Like Magic
+                Simplicity that Feels Like Magic
               </h3>
               <p className="text-gray-300 mb-6">
-                The UI/UX of Vayuxi is so intuitive, you won&aspo;t need a manual. Or a demo. Or even training.
+                The UI/UX of VAYUXI is so intuitive, you won’t need a manual, a demo, or even training.
               </p>
               <ul className="space-y-4">
                 <li className="flex">
@@ -95,7 +95,7 @@ export function FeaturesSection() {
                     </svg>
                   </span>
                   <span className="text-gray-300">
-                    From the moment you open the app, everything is where it should be.
+                    From the moment you open the app, everything just makes sense.
                   </span>
                 </li>
                 <li className="flex">
@@ -105,7 +105,7 @@ export function FeaturesSection() {
                     </svg>
                   </span>
                   <span className="text-gray-300">
-                    Site teams — even without technical training — can operate the app within 60 seconds.
+                    Your site team — even without any technical background — can start using the app in under 60 seconds.
                   </span>
                 </li>
                 <li className="flex">
@@ -115,7 +115,7 @@ export function FeaturesSection() {
                     </svg>
                   </span>
                   <span className="text-gray-300">
-                    Zero onboarding, zero frustration, zero lag in adoption.
+                    Zero onboarding. Zero confusion. Zero resistance.
                   </span>
                 </li>
               </ul>
@@ -124,7 +124,12 @@ export function FeaturesSection() {
               <div className="bg-blue-900/30 p-6 rounded-xl border border-blue-900/50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
                 <blockquote className="text-white text-xl italic font-medium relative z-10">
-                  &quot;We believe that technology shouldn&aspo;t add complexity to your work — it should remove it completely.&quot;
+                  We believe technology shouldn’t complicate your work — It should quietly remove all the noise.
+                </blockquote>
+                <blockquote className="text-white text-xl italic mt-5 font-medium relative z-10">
+                  “Built for the boots on the ground — not just the ones in the boardroom.”
+                  Or
+                  “Technology so simple, it disappears into your workflow.”
                 </blockquote>
                 <div className="mt-8 flex items-center">
                   <div className="flex-shrink-0">

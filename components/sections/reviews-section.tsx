@@ -34,7 +34,7 @@ export function ReviewsSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Reviews</h2>
           <p className="text-gray-300 text-lg">
-            See what our customers have to say about their experience with VAYUXI ERP.
+            See what real engineers, site managers, and contractors are saying about their experience with VAYUXI ERP.
           </p>
         </div>
         

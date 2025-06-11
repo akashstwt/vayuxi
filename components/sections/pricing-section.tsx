@@ -109,9 +109,11 @@ export function PricingSection() {
         <div className="mt-16 text-center">
           <div className="inline-block bg-blue-900/20 rounded-xl p-6 border border-blue-900/30 max-w-3xl">
             <h3 className="text-xl font-bold text-white mb-3">Need a custom plan?</h3>
+            <p className="text-gray-300 mb-4">
+               We offer tailored enterprise solutions for companies with unique needs.
+            </p>
             <p className="text-gray-300 mb-6">
-              We offer custom solutions for enterprise clients with special requirements.
-              Contact our sales team to discuss your needs.
+              📞 Contact our sales team to get a personalized quote and demo.
             </p>
             <button className="py-2 px-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
               Contact Sales

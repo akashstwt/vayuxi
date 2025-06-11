@@ -10,19 +10,20 @@ export function AboutSection() {
               Built by Site People, for Site People
             </h2>
             <p className="text-gray-300 mb-6">
-              VAYUXI ERP is an Indian tech startup focused on digitizing on-site work in the construction 
-              and engineering industry. We understand the pain of paperwork, WhatsApp chaos, and calculation 
-              mistakes.
+              VAYUXI ERP is a homegrown Indian tech startup, focused on transforming the way on-site work happens in the construction and engineering industry.
             </p>
             <p className="text-gray-300 mb-6">
-              That&aspo;s why we built a simple mobile app that makes your site management smart, fast, and error-free.
+              We understand the real pain — endless paperwork, scattered WhatsApp messages, and costly calculation errors.
+            </p>
+            <p className="text-gray-300 mb-6">
+              That’s exactly why we created a simple, powerful mobile app to make your site management smart, fast, and error-free.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-900/50">
                 <h3 className="text-xl font-semibold text-white mb-2">Our Mission</h3>
                 <p className="text-gray-300">
-                  To empower every contractor and supervisor with easy technology.
+                  To empower every contractor, site engineer, and supervisor with easy-to-use technology that simplifies their work and saves time.       
                 </p>
               </div>
               <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-900/50">
@@ -53,7 +54,7 @@ export function AboutSection() {
                     </div>
                   </div>
                   <p className="text-gray-300">
-                    Our team includes civil engineers, site managers, and tech developers who have lived the problems.
+                    Our team includes civil engineers, site managers, and tech developers who have experienced these problems firsthand.
                   </p>
                 </div>
                 
@@ -66,7 +67,8 @@ export function AboutSection() {
                     </div>
                   </div>
                   <p className="text-gray-300">
-                    We believe technology shouldn&aspo;t add complexity to your work — it should remove it completely.
+                    We believe technology shouldn’t add complexity to your work — it should remove it completely.
+                    Simplified. Streamlined. Smart.
                   </p>
                 </div>
                 
@@ -79,7 +81,7 @@ export function AboutSection() {
                     </div>
                   </div>
                   <p className="text-gray-300">
-                    Save up to 30% of your management costs with our streamlined approach.
+                    Save up to 30% of your management costs with our integrated approach.
                   </p>
                 </div>
               </div>
@@ -88,7 +90,7 @@ export function AboutSection() {
                 <div className="flex items-center p-4 bg-blue-900/40 rounded-lg">
                   <span className="text-3xl text-blue-300 font-bold mr-3">🚀</span>
                   <p className="text-white italic">
-                    &quot;We didn&aspo;t just build software. We engineered a time machine.&quot;
+                    We didn’t just build software. We engineered your time back.
                   </p>
                 </div>
               </div>
