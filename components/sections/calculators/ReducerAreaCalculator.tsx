@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import domeImg from "../../../public/dome.png";
+import reducerImg from "../../../public/reducer.png";
 
 const unitToMM: Record<string, number> = {
   mm: 1,
@@ -16,40 +16,42 @@ const areaUnitFactor: Record<string, number> = {
   "m²": 1 / 1_000_000,
 };
 
-const DomeAreaCalculator = () => {
+const ReducerAreaCalculator = () => {
   const [quantity, setQuantity] = useState(1);
-  const [circumference, setCircumference] = useState(0);
+  const [c1, setC1] = useState(0);
+  const [c2, setC2] = useState(0);
   const [height, setHeight] = useState(0);
 
-  const [circUnit, setCircUnit] = useState("mm");
+  const [c1Unit, setC1Unit] = useState("mm");
+  const [c2Unit, setC2Unit] = useState("mm");
   const [heightUnit, setHeightUnit] = useState("mm");
   const [areaUnit, setAreaUnit] = useState("mm²");
 
   const [area, setArea] = useState(0);
 
   useEffect(() => {
-    const c = circumference * unitToMM[circUnit];
-    const h = height * unitToMM[heightUnit];
+    const C1mm = c1 * unitToMM[c1Unit];
+    const C2mm = c2 * unitToMM[c2Unit];
+    const Hmm = height * unitToMM[heightUnit];
 
-    const d = c / Math.PI;
+    const lambda = 1.2;
 
-    const lambda = h < d / 3 ? 1.27 : 1.75;
-
-    const areaMM = (Math.PI * d * d * lambda * quantity) / 4;
+    const areaMM = ((C1mm + C2mm) / 2) * Hmm * lambda * quantity;
 
     const convertedArea = areaMM * areaUnitFactor[areaUnit];
 
     setArea(convertedArea);
-  }, [circumference, height, quantity, circUnit, heightUnit, areaUnit]);
+  }, [c1, c2, height, quantity, c1Unit, c2Unit, heightUnit, areaUnit]);
 
   return (
-      <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 container px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#0c1825] px-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left: Image */}
         <div className="bg-blue-300 rounded-xl p-4 flex justify-center items-center">
           <Image
-            src={domeImg}
-            alt="Dome Diagram"
-            width={0}
+            src={reducerImg}
+            alt="Reducer Diagram"
+            width={350}
             height={300}
             className="rounded-xl"
           />
@@ -66,17 +68,34 @@ const DomeAreaCalculator = () => {
               onChange={(e) => setQuantity(parseInt(e.target.value) || 0)}
             />
 
-            <label className="text-gray-300 font-medium col-span-1">Circumference:</label>
+            <label className="text-gray-300 font-medium col-span-1">Circumference 1:</label>
             <input
               type="number"
               className="p-2 rounded bg-[#0f1d2a] text-white border border-blue-800"
-              value={circumference}
-              onChange={(e) => setCircumference(parseFloat(e.target.value) || 0)}
+              value={c1}
+              onChange={(e) => setC1(parseFloat(e.target.value) || 0)}
             />
             <select
               className="p-2 rounded bg-[#0f1d2a] text-white border border-blue-800"
-              value={circUnit}
-              onChange={(e) => setCircUnit(e.target.value)}
+              value={c1Unit}
+              onChange={(e) => setC1Unit(e.target.value)}
+            >
+              <option value="mm">mm</option>
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+
+            <label className="text-gray-300 font-medium col-span-1">Circumference 2:</label>
+            <input
+              type="number"
+              className="p-2 rounded bg-[#0f1d2a] text-white border border-blue-800"
+              value={c2}
+              onChange={(e) => setC2(parseFloat(e.target.value) || 0)}
+            />
+            <select
+              className="p-2 rounded bg-[#0f1d2a] text-white border border-blue-800"
+              value={c2Unit}
+              onChange={(e) => setC2Unit(e.target.value)}
             >
               <option value="mm">mm</option>
               <option value="cm">cm</option>
@@ -102,9 +121,9 @@ const DomeAreaCalculator = () => {
           </div>
 
           {/* Output */}
-          <div className="bg-[#0f1d2a] p-4 rounded-xl shadow border border-blue-800">
+          <div className="mt-4 bg-[#0f1d2a] p-4 rounded-xl border border-blue-800">
             <div className="flex justify-between items-center">
-              <h3 className="text-white text-lg font-semibold">Total Dome Area:</h3>
+              <h3 className="text-white text-lg font-semibold">Total Reducer Area:</h3>
               <select
                 className="p-2 rounded border bg-[#0f1d2a] border-blue-800"
                 value={areaUnit}
@@ -121,7 +140,8 @@ const DomeAreaCalculator = () => {
           </div>
         </div>
       </div>
+    </section>
   );
 };
 
-export default DomeAreaCalculator;
+export default ReducerAreaCalculator;
