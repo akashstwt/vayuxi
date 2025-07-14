@@ -1,3 +1,4 @@
+import DynamicCalculator from "./calculators/DinamicCalculator";
 import DomeAreaCalculator from "./calculators/DomeAreaCalculator";
 import ReducerAreaCalculator from "./calculators/ReducerAreaCalculator";
 import ShellAreaCalculator from "./calculators/ShellAreaCalculator";
@@ -10,6 +11,7 @@ const AppSample = () => {
         <ShellAreaCalculator />
         <DomeAreaCalculator />
         <ReducerAreaCalculator />
+        <DynamicCalculator />
     </section>
   );
 };
