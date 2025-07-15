@@ -8,9 +8,9 @@ const AppSample = () => {
 
   return (
     <section className="bg-[#0c1825] py-24 px-4 md:px-8 flex flex-col gap-8">
-        <ShellAreaCalculator />
+        {/* <ShellAreaCalculator />
         <DomeAreaCalculator />
-        <ReducerAreaCalculator />
+        <ReducerAreaCalculator /> */}
         <DynamicCalculator />
     </section>
   );

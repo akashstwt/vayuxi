@@ -85,12 +85,12 @@ const itemsData: ItemData[] = [
   },
   {
     name: "INSULATED FLANGE VALVE WITH FIX BOX",
-    image: image4,
+    image: image5,
     lambdaValues: [1.5, 1.8, 2.1, 2.4, 2.7, 3.0],
   },
   {
     name: "INSULATED WELDED VALVE WITH FIX BOX",
-    image: image5,
+    image: image4,
     lambdaValues: [0.2, 0.6, 0.6, 0.6, 0.6, 0.6],
   },
   
@@ -108,11 +108,25 @@ const areaUnitFactor: Record<string, number> = {
   "m²": 1 / 1_000_000,
 };
 
+const lengthUnitFactor: Record<string, number> = {
+  mm: 1,
+  cm: 1 / 10,
+  m: 1 / 1000,
+};
+
 const DynamicCalculator = () => {
+  const [lengths, setLengths] = useState<number[]>(Array(itemsData.length).fill(0));
   const [areas, setAreas] = useState<number[]>(Array(itemsData.length).fill(0));
+
+  const [finalLengthUnit, setFinalLengthUnit] = useState("mm");
   const [finalAreaUnit, setFinalAreaUnit] = useState("mm²");
 
-  const handleAreaChange = (index: number, area: number) => {
+  const handleItemChange = (index: number, length: number, area: number) => {
+    setLengths((prev) => {
+      const updated = [...prev];
+      updated[index] = length;
+      return updated;
+    });
     setAreas((prev) => {
       const updated = [...prev];
       updated[index] = area;
@@ -120,23 +134,49 @@ const DynamicCalculator = () => {
     });
   };
 
+  const totalLengthMM = lengths.reduce((sum, l) => sum + l, 0);
   const totalAreaMM = areas.reduce((sum, a) => sum + a, 0);
+
+  const convertedTotalLength = totalLengthMM * lengthUnitFactor[finalLengthUnit];
   const convertedTotalArea = totalAreaMM * areaUnitFactor[finalAreaUnit];
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      {itemsData.map((item, index) => (
-        <DynamicCalculatorItem
-          key={item.name}
-          data={item}
-          onAreaChange={(area) => handleAreaChange(index, area)}
-        />
-      ))}
 
-      {/* ✅ Final Total Area Section */}
-      <div className="bg-green-800/20 rounded-xl p-6 shadow border border-green-800">
+      <div className=" flec justify-center items-center text-center text-xl lg:text-3xl font-bold">
+        PIPING AND FITTING AREA AND LENGTH (RMT) CALCULATOR - IS14164:2008
+      </div>
+      
+
+      {/* ✅ Final Totals Section */}
+      <div className="bg-green-800/20 rounded-xl px-6 py-2 gap-6 shadow border border-green-800">
+        {/* Final Length */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-white text-2xl font-bold">Final Total Area:</h2>
+          <div className="flex flex-row items-center gap-4">
+            <h2 className="text-white text-2xl font-bold">Final Total Length:</h2>
+            <p className="text-green-500 font-bold text-3xl">
+              {convertedTotalLength.toLocaleString(undefined, { maximumFractionDigits: 4 })} {finalLengthUnit}
+            </p>
+          </div>
+          <select
+            className="p-2 rounded border bg-[#0f1d2a] border-green-800 text-white"
+            value={finalLengthUnit}
+            onChange={(e) => setFinalLengthUnit(e.target.value)}
+          >
+            <option value="mm">mm</option>
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+          </select>
+        </div>
+
+        {/* Final Area */}
+        <div className="flex justify-between items-center">
+          <div className="flex flex-row items-center gap-4">
+            <h2 className="text-white text-2xl font-bold">Final Total Area:</h2>
+            <p className="text-green-500 font-bold text-3xl">
+              {convertedTotalArea.toLocaleString(undefined, { maximumFractionDigits: 4 })} {finalAreaUnit}
+            </p>
+          </div>
           <select
             className="p-2 rounded border bg-[#0f1d2a] border-green-800 text-white"
             value={finalAreaUnit}
@@ -147,46 +187,67 @@ const DynamicCalculator = () => {
             <option value="m²">m²</option>
           </select>
         </div>
-        <p className="text-green-500 font-bold text-3xl">
-          {convertedTotalArea.toLocaleString(undefined, { maximumFractionDigits: 2 })} {finalAreaUnit}
-        </p>
       </div>
+
+      {itemsData.map((item, index) => (
+        <DynamicCalculatorItem
+          key={item.name}
+          data={item}
+          onValuesChange={(length, area) => handleItemChange(index, length, area)}
+        />
+      ))}
     </div>
   );
 };
 
 type DynamicCalculatorItemProps = {
   data: ItemData;
-  onAreaChange: (area: number) => void;
+  onValuesChange: (length: number, area: number) => void;
 };
 
-const DynamicCalculatorItem = ({ data, onAreaChange }: DynamicCalculatorItemProps) => {
-  const [quantity, setQuantity] = useState(1);
+const DynamicCalculatorItem = ({ data, onValuesChange }: DynamicCalculatorItemProps) => {
+  const [quantity, setQuantity] = useState(0);
+  const [lengthInput, setLengthInput] = useState(0);
+  const [lengthInputUnit, setLengthInputUnit] = useState("m");
+
   const [circumference, setCircumference] = useState(0);
   const [circUnit, setCircUnit] = useState("mm");
+  const [lengthUnit, setLengthUnit] = useState("mm");
   const [areaUnit, setAreaUnit] = useState("mm²");
+
+  const [length, setLength] = useState(0);
   const [area, setArea] = useState(0);
 
   useEffect(() => {
-    const c = circumference * unitToMM[circUnit];
-    const d = c / Math.PI;
+    const cInMM = circumference * unitToMM[circUnit];
+    const diameterInMM = cInMM / Math.PI;
 
-    // ✅ Determine lambda based on diameter range
+    // ✅ Determine lambda based on diameter
     let lambda = 1;
     for (let i = 0; i < diameterRanges.length; i++) {
       const range = diameterRanges[i];
-      if (d >= range.minDiameter && d < range.maxDiameter) {
+      if (diameterInMM >= range.minDiameter && diameterInMM < range.maxDiameter) {
         lambda = data.lambdaValues[i];
         break;
       }
     }
 
-    const areaMM = d * lambda * quantity;
-    const convertedArea = areaMM * areaUnitFactor[areaUnit];
+    let calculatedLength = 0;
 
-    setArea(convertedArea);
-    onAreaChange(areaMM); // store in MM for global total
-  }, [circumference, quantity, circUnit, areaUnit, data.lambdaValues, onAreaChange]);
+    if (data.name === "PIPE") {
+      // Convert input length to mm if needed
+      const lengthInMM = lengthInput * unitToMM[lengthInputUnit];
+      calculatedLength = lengthInMM; // For PIPE, direct length input is used
+    } else {
+      calculatedLength = lambda * 1000 * quantity; // For others, old logic remains
+    }
+
+    const calculatedArea = calculatedLength * cInMM;
+
+    setLength(calculatedLength);
+    setArea(calculatedArea);
+    onValuesChange(calculatedLength, calculatedArea);
+  }, [circumference, quantity, lengthInput, lengthInputUnit, circUnit, data.lambdaValues, onValuesChange, data.name]);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -206,13 +267,36 @@ const DynamicCalculatorItem = ({ data, onAreaChange }: DynamicCalculatorItemProp
         <h3 className="text-white text-sm lg:text-xl font-semibold">{data.name}</h3>
 
         <div className="grid grid-cols-3 gap-4 items-center">
-          <label className="text-gray-300 font-medium col-span-1">Quantity:</label>
-          <input
-            type="number"
-            className="col-span-2 p-2 rounded bg-[#0f1d2a] text-white border border-blue-800 focus:outline-none"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value) || 0)}
-          />
+          {data.name === "PIPE" ? (
+            <>
+              <label className="text-gray-300 font-medium col-span-1">Length:</label>
+              <input
+                type="number"
+                className="col-span-1 p-2 rounded bg-[#0f1d2a] text-white border border-blue-800 focus:outline-none"
+                value={lengthInput}
+                onChange={(e) => setLengthInput(parseFloat(e.target.value) || 0)}
+              />
+              <select
+                className="col-span-1 p-2 rounded bg-[#0f1d2a] text-white border border-blue-800"
+                value={lengthInputUnit}
+                onChange={(e) => setLengthInputUnit(e.target.value)}
+              >
+                <option value="mm">mm</option>
+                <option value="cm">cm</option>
+                <option value="m">m</option>
+              </select>
+            </>
+          ) : (
+            <>
+              <label className="text-gray-300 font-medium col-span-1">Quantity:</label>
+              <input
+                type=""
+                className="col-span-2 p-2 rounded bg-[#0f1d2a] text-white border border-blue-800 focus:outline-none"
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value) || 0)}
+              />
+            </>
+          )}
 
           <label className="text-gray-300 font-medium col-span-1">Circumference:</label>
           <input
@@ -232,10 +316,35 @@ const DynamicCalculatorItem = ({ data, onAreaChange }: DynamicCalculatorItemProp
           </select>
         </div>
 
-        {/* Output */}
-        <div className="bg-[#0f1d2a] p-4 rounded-xl shadow border border-blue-800">
+        {/* Outputs */}
+        <div className="bg-[#0f1d2a] p-4 rounded-xl flex flex-col gap-4 shadow border border-blue-800">
+          {/* Length */}
           <div className="flex justify-between items-center">
-            <h4 className="text-white text-lg font-semibold">Area:</h4>
+            <div className="flex flex-row gap-4">
+              <h4 className="text-white text-lg font-semibold">Equivalent Length:</h4>
+              <p className="text-blue-700 font-bold text-xl">
+                {(length * lengthUnitFactor[lengthUnit]).toLocaleString(undefined, { maximumFractionDigits: 4 })} {lengthUnit}
+              </p>
+            </div>
+            <select
+              className="p-2 rounded border bg-[#0f1d2a] border-blue-800 text-white"
+              value={lengthUnit}
+              onChange={(e) => setLengthUnit(e.target.value)}
+            >
+              <option value="mm">mm</option>
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+          </div>
+
+          {/* Area */}
+          <div className="flex justify-between items-center">
+            <div className="flex flex-row gap-4">
+              <h4 className="text-white text-lg font-semibold">Area:</h4>
+              <p className="text-blue-700 font-bold text-xl">
+                {(area * areaUnitFactor[areaUnit]).toLocaleString(undefined, { maximumFractionDigits: 4 })} {areaUnit}
+              </p>
+            </div>
             <select
               className="p-2 rounded border bg-[#0f1d2a] border-blue-800 text-white"
               value={areaUnit}
@@ -246,9 +355,6 @@ const DynamicCalculatorItem = ({ data, onAreaChange }: DynamicCalculatorItemProp
               <option value="m²">m²</option>
             </select>
           </div>
-          <p className="text-blue-700 font-bold text-2xl mt-2">
-            {area.toLocaleString(undefined, { maximumFractionDigits: 2 })} {areaUnit}
-          </p>
         </div>
       </div>
     </div>
