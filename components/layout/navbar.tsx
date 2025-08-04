@@ -2,22 +2,29 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1421]/95 backdrop-blur-sm border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff]/5 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-white font-bold text-xl">
-              VAYUXI ERP
+          <div className="">
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/logo.svg" 
+                alt="VAYUXI ERP" 
+                width={150} 
+                height={40} 
+                className=""
+              />
             </Link>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
+            <div className="ml-10 flex font-light items-center space-x-8">
               <Link href="/" className="text-white hover:text-blue-300 transition-colors">
                 Home
               </Link>
@@ -38,9 +45,9 @@ export function Navbar() {
           <div className="hidden md:block">
             <Link 
               href="#contact" 
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-2 border border-[#2563EB] rounded-md shadow-sm text-sm font-medium text-white  hover:bg-blue-700 transition-colors"
             >
-              Contact Us
+              Get Started
             </Link>
           </div>
           <div className="md:hidden">
