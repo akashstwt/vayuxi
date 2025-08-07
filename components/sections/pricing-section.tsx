@@ -2,46 +2,45 @@ import { Check } from "lucide-react";
 
 const pricingPlans = [
   {
-    name: "Basic",
-    price: "₹199",
+    name: "Free",
+    price: "₹0",
     description: "Essential tools to get you started",
     features: [
+      "10 Days Free Trial",
+      "Expense Tracking",
       "Attendance Management",
       "Daily Progress Reports",
-      "1 Site",
       "Limited Exports",
-      "Mobile App Access",
-      "Basic Support"
     ],
     cta: "Choose Plan",
     highlight: false,
   },
   {
-    name: "Standard",
-    price: "₹499",
-    description: "Advanced features for growing businesses",
+    name: "Essential",
+    price: "₹1499",
+    description: "Essential features for running businesses",
     features: [
-      "Everything in Basic",
+      "Record Sites, Rates, Man Power and Expense Details",
+      "Record DPR",
+      "Record Attendance",
+      "Generate Measurement Sheets - Invoices",
       "Auto Salary Slips",
       "Analytics Dashboard",
-      "Multiple Sites",
-      "Unlimited Exports",
-      "Priority Support"
     ],
     cta: "Choose Plan",
     highlight: true,
   },
   {
     name: "Premium",
-    price: "₹999",
+    price: "₹9999",
     description: "Complete solution with all features included",
     features: [
-      "Everything in Standard",
+      "Everything in Essential",
       "GST Bills Generation",
-      "Invoice Sharing",
-      "File Uploads",
+      "AI Assistance for Prediction",
+      "Inventory Management",
       "Advanced Analytics",
-      "Dedicated Support"
+      "Man Power and Work Evaluation",
     ],
     cta: "Choose Plan",
     highlight: false,
@@ -78,7 +77,7 @@ export function PricingSection() {
                 <p className="text-gray-400 mb-4">{plan.description}</p>
                 <div className="flex items-end mb-6">
                   <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-400 ml-2">/month</span>
+                  <span className="text-gray-400 ml-2">/year</span>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
