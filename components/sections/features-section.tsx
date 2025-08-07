@@ -11,45 +11,35 @@ import {
 
 const features = [
   {
-    title: "Real-Time Analytics",
-    description: "Gain insights with up-to-date data and customizable reports.",
+    title: "Domain Specific Intelligence",
+    description: "Built-in Indian Standards (IS) calculations for accuracy. Reduces manual errors by 80%.",
     icon: <BarChart3 size={28} className="text-blue-400" />
   },
   {
-    title: "Resource Management",
-    description: "Allocate resources efficiently and manage tasks with ease.",
+    title: "Easy-to-Use, Offline-First Visual UI",
+    description: "Designed for semi-literate users at remote sites Workers who only know basic numbers (1–10) can generate complex invoices & reports",
     icon: <Users size={28} className="text-blue-400" />
   },
   {
-    title: "Inventory Control",
-    description: "Track stock levels and manage orders to reduce overhead.",
+    title: "Highly Customizable & Future-Ready",
+    description: "No-code customization for different contractor needs. AI roadmap for predictive analytics & automation.",
     icon: <Package size={28} className="text-blue-400" />
   },
   {
-    title: "Customizable Modules",
-    description: "Adapt the system to your business with flexible options.",
+    title: "First-Mover Advantage in SME Segment",
+    description: "Existing ERPs only target large enterprises. We focus on 80% of contractors in India & other developing markets (SE Asia, Africa)",
     icon: <Settings size={28} className="text-blue-400" />
   },
   {
-    title: "Instant Engineering Sheets",
-    description: "Generate measurement, abstract, and summary sheets with one click.",
+    title: "Unmatched ROI for SMEs",
+    description: "120x – 400x ROI per year through time savings, error reduction & paperless operations. Priced for affordability (₹1,500/user/year)",
     icon: <Layers size={28} className="text-blue-400" />
   },
   {
     title: "Time-Saving Automation",
-    description: "What used to take 10 days, now takes 10 seconds.",
+    description: "It makes construction sites faster, error-free & more profitable (min.15–30% profit margin increases)",
     icon: <Clock size={28} className="text-blue-400" />
   },
-  {
-    title: "Work Offline",
-    description: "Continue working without internet and sync when connected.",
-    icon: <Wifi size={28} className="text-blue-400" />
-  },
-  {
-    title: "Intuitive Interface",
-    description: "So simple, you won't need a manual or training.",
-    icon: <ZoomIn size={28} className="text-blue-400" />
-  }
 ];
 
 export function FeaturesSection() {
@@ -63,7 +53,7 @@ export function FeaturesSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div 
               key={index}

@@ -11,7 +11,7 @@ export function Footer() {
               From Site to Sheet, Simplified.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/vayuxi_?igsh=YmloZ2d5dHA4aXdi&utm_source=qr" target="_blank"
+              <a href="https://www.instagram.com/vayu.xi?igsh=MWx5ajNqZnQ1ZHAxOA==" target="_blank"
                 rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <span className="sr-only">Instagram</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

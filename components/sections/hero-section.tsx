@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export function HeroSection() {
+export const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Simple parallax effect on scroll
@@ -45,18 +45,18 @@ export function HeroSection() {
               Streamline your operations and boost <br /> productivity with our powerful ERP software.
             </p>
             <div className="flex flex-col w-full sm:flex-row gap-4">
-              <Link
+              <a
                 href="#pricing"
                 className="inline-flex items-center justify-center py-3 w-1/2 border border-white hover:border-transparent text-base font-normal rounded-md text-white hover:bg-[#2563EB] transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
                 Get Started
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#features"
-                className="inline-flex items-center justify-center py-3 w-1/2 hover:border-transparent text-base font-normal rounded-md text-white/50 hover:bg-[#2563EB] transition-colors duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center py-3 w-1/2 hover:border-transparent text-base font-normal rounded-md text-white/90 hover:bg-[#2563EB] transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
                 Explore Features <ArrowRight size={18} className="ml-2" />
-              </Link>
+              </a>
             </div>
           </div>
           
