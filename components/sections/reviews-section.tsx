@@ -31,7 +31,7 @@ export function ReviewsSection() {
   return (
     <section id="reviews" className="py-24 px-3 md:px-8 bg-[#0a1421]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl flex flex-col justify-center items-center mx-auto mb-16">
+        {/* <div className="text-center max-w-3xl flex flex-col justify-center items-center mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Reviews</h2>
           <p className="text-gray-300 w-[90%] text-lg">
             See what real engineers, site managers, and contractors are saying about their experience with VAYUXI ERP.
@@ -81,12 +81,12 @@ export function ReviewsSection() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
         
         <div className="mt-16 max-w-4xl mx-auto bg-gradient-to-r from-blue-900/20 to-blue-800/20 rounded-xl p-8 border border-blue-900/30">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-6">
-              Join Hundreds of Satisfied Construction Professionals
+              Join The Moment and Be Satisfied Construction Professionals
             </h3>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               {["Contractors", "Civil Engineers", "Site Supervisors", "Builders", "Project Managers"].map((role, i) => (
