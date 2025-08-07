@@ -10,8 +10,7 @@ export function AboutSection() {
               Built by Site People, for Site People
             </h2>
             <p className="text-gray-300 mb-6">
-              VAYUXI ERP is a homegrown Indian tech startup, focused on transforming the way on-site work happens in the construction and engineering industry.
-            </p>
+              There are 70M+ blue-collar construction professionals in India alone. Vayuxi is the first platform built for them. Simplifying construction site operations with an easy, offline-ready ERP designed for real field-level data entry and reporting.            </p>
             <p className="text-gray-300 mb-6">
               We understand the real pain — endless paperwork, scattered WhatsApp messages, and costly calculation errors.
             </p>
@@ -22,14 +21,20 @@ export function AboutSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-900/50">
                 <h3 className="text-xl font-semibold text-white mb-2">Our Mission</h3>
-                <p className="text-gray-300">
-                  To empower every contractor, site engineer, and supervisor with easy-to-use technology that simplifies their work and saves time.       
+                <p className="text-gray-300 text-sm">
+                  "Empowering Every Engineer, Everywhere”
+                </p>
+                <p className="text-gray-300 text-sm mt-4">
+                  Our mission is to put VAYUXI  in the hands of every engineer and field worker worldwide, making construction site management seamless, digital, and stress-free.       
                 </p>
               </div>
               <div className="bg-blue-900/20 p-6 rounded-xl border border-blue-900/50">
                 <h3 className="text-xl font-semibold text-white mb-2">Our Vision</h3>
-                <p className="text-gray-300">
-                  A paperless, productive construction site across India.
+                <p className="text-gray-300 text-sm">
+                  "To make VAYUXI a mark of pride and integrity in the engineering world.”
+                </p>
+                <p className="text-gray-300 text-sm mt-4">
+                  We envision VAYUXI becoming a platform where every user feels proud to declare they use it—symbolizing honesty, fairness, and zero compromise in their work. Just like ISO, ISI, or BIS certifications, VAYUXI will stand as a trusted standard of quality and transparency in the industry.               
                 </p>
               </div>
             </div>

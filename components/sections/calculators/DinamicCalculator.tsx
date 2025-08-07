@@ -143,8 +143,8 @@ const DynamicCalculator = () => {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-      <div className=" flec justify-center items-center text-center text-xl lg:text-3xl font-bold">
-        PIPING AND FITTING AREA AND LENGTH (RMT) CALCULATOR - IS14164:2008
+      <div className="flex justify-center items-center text-center text-xl lg:text-3xl font-bold">
+        AREA AND LENGTH (RMT) CALCULATOR - IS14164:2008
       </div>
       
 
